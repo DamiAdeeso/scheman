@@ -1,7 +1,6 @@
 package dao.impl;
 
 import com.example.Scheman.TestDataUtil;
-import com.example.Scheman.dao.AuthorsDao;
 import com.example.Scheman.dao.impl.AuthorDaoImpl;
 import com.example.Scheman.domain.Author;
 import org.junit.jupiter.api.Test;
@@ -12,8 +11,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Optional;
 
-@SpringBootTest
-@ExtendWith(SpringExtension.class)
+//@SpringBootTest
+//@ExtendWith(SpringExtension.class)
 public class AuthorDaoImplIntegrationTest {
 
     private AuthorDaoImpl underTest;
@@ -21,17 +20,21 @@ public class AuthorDaoImplIntegrationTest {
     @Autowired
     public AuthorDaoImplIntegrationTest(AuthorDaoImpl underTest){
 
-        this.underTest  = underTest;
-
+        this.underTest = underTest;
     }
 
     @Test
-    public void testThatAuthorCanBeCreatedAndRecalled(){
+    public void testThatAuthorCanBeCreatedAndRead(){
 
         Author author = TestDataUtil.createTestAuthor();
         underTest.create(author);
-        Optional<Author> result = underTest.findOne((author.getId()));
+        Optional<Author> result = underTest.findOne(author.getId());
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(author);
+
+
+
+
     }
+
 }

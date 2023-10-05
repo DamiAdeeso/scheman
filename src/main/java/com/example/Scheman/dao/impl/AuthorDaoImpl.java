@@ -2,6 +2,7 @@ package com.example.Scheman.dao.impl;
 
 import com.example.Scheman.dao.AuthorsDao;
 import com.example.Scheman.domain.Author;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
